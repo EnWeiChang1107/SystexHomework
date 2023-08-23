@@ -16,6 +16,11 @@ public class EmployeeController {
         this.employeeService=employeeService;
     }
 
+
+    @GetMapping("/getEmployeesByName")//localhost:8080/api/getEmployeesByName/search?name=John
+    public List<Employee> findByNAme(@RequestParam(value = "name",required = false) String name){
+        return employeeService.findByName(name);
+    }
     @GetMapping("/getAllEmployees")
     public List<Employee> findAll(){
         return employeeService.findAll();
@@ -39,7 +44,6 @@ public class EmployeeController {
         Employee employee1=employeeService.findById(employee.getId());
         employee.setCreatedAt(employee1.getCreatedAt());
         Employee dbemployee = employeeService.save(employee);
-
         return dbemployee;
     }
     @DeleteMapping("/deleteEmployees/{employeeId}")

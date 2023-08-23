@@ -28,6 +28,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(configurer ->
                 configurer
                         .requestMatchers(HttpMethod.GET,"/api/getAllEmployees").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/api/getEmployeesByName").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET,"/api/getEmployees/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST,"/api/addEmployees").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT,"/api/updateEmployees").hasRole("ADMIN")
@@ -37,6 +38,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST,"/api/addRole").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT,"/api/updateRole").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE,"/api/deleteRole/**").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET,"/api/getAllCategories").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/api/addCategory").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,"/api/updateCategory").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/api/deleteCategory/**").hasRole("ADMIN")
         );
 
 

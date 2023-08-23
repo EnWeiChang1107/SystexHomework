@@ -17,8 +17,8 @@ public class HomeworkApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(EmployeeService employeeService, RoleService roleService){
 		return runner ->{
-			System.out.println(employeeService.findById(1));
-			System.out.println(roleService.findById(1));
+			System.out.println(employeeService.findByName("Eric"));
+			//System.out.println(roleService.findById(1));
 		};
 	}
 

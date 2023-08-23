@@ -52,4 +52,10 @@ public class EmployeeServiceImpl implements EmployeeService{
             throw new RuntimeException("Employee id not found - " + Id);
         }
     }
+
+    @Override
+    public List<Employee> findByName(String name) {
+
+        return employeeRepository.findByName(name);
+    }
 }
