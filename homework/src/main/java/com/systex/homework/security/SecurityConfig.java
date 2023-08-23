@@ -33,6 +33,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST,"/api/addEmployees").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT,"/api/updateEmployees").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE,"/api/deleteEmployees/**").hasRole("ADMIN")
+
                         .requestMatchers(HttpMethod.GET,"/api/getRole/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET,"/api/getAllRoles").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST,"/api/addRole").hasRole("ADMIN")
@@ -43,6 +44,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST,"/api/addCategory").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT,"/api/updateCategory").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE,"/api/deleteCategory/**").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET,"/api/getProduct").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/api/addProduct").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,"/api/updateProduct").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/api/deleteProduct/**").hasRole("ADMIN")
         );
 
 

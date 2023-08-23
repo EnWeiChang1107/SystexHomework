@@ -1,6 +1,7 @@
 package com.systex.homework;
 
 import com.systex.homework.service.EmployeeService;
+import com.systex.homework.service.ProductService;
 import com.systex.homework.service.RoleService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,9 +16,9 @@ public class HomeworkApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(EmployeeService employeeService, RoleService roleService){
+	public CommandLineRunner commandLineRunner(EmployeeService employeeService, RoleService roleService, ProductService productService){
 		return runner ->{
-			System.out.println(employeeService.findById(1));
+			System.out.println(productService.findById(1));
 			//System.out.println(roleService.findById(1));
 		};
 	}
