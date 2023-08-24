@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/Category")
 public class CategoriesController {
     private CategoriesService categoriesService;
     @Autowired
@@ -16,19 +16,19 @@ public class CategoriesController {
         this.categoriesService=categoriesService;
     }
 
-    @GetMapping("/getAllCategories")
+    @GetMapping("/getAll")
     public List<Categories> getAll(){
         return categoriesService.findAll();
     }
 
-    @PostMapping("/addCategory")
+    @PostMapping("/add")
     public Categories addCategory(@RequestBody Categories categories){
         categories.setId(0);
         Categories categories1=categoriesService.save(categories);
         return categories1;
     }
 
-    @PutMapping("/updateCategory")
+    @PutMapping("/update")
     public Categories updateCategory(@RequestBody Categories categories){
         Categories categories1=categoriesService.findById(categories.getId());
         categories.setCreatedAt(categories1.getCreatedAt());
@@ -36,7 +36,7 @@ public class CategoriesController {
         return categories2;
     }
 
-    @DeleteMapping("/deleteCategory/{CategoryId}")
+    @DeleteMapping("/delete/{CategoryId}")
     public String deleteCategory(@PathVariable int CategoryId){
         Categories categories=categoriesService.findById(CategoryId);
         if(categories==null){

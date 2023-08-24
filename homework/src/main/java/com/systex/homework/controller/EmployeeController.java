@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/Employee")
 public class EmployeeController {
     private EmployeeService employeeService;
     @Autowired
@@ -17,15 +17,15 @@ public class EmployeeController {
     }
 
 
-    @GetMapping("/getEmployeesByName")//localhost:8080/api/getEmployeesByName/search?name=John
+    @GetMapping("/getByName")//localhost:8080/api/getEmployeesByName/search?name=John
     public List<Employee> findByNAme(@RequestParam(value = "name",required = false) String name){
         return employeeService.findByName(name);
     }
-    @GetMapping("/getAllEmployees")
+    @GetMapping("/getAll")
     public List<Employee> findAll(){
         return employeeService.findAll();
     }
-    @GetMapping("/getEmployees/{employeeId}")
+    @GetMapping("/get/{employeeId}")
     public Employee getEmployee(@PathVariable int employeeId){
         Employee employee = employeeService.findById(employeeId);
         if(employee==null){
@@ -33,20 +33,20 @@ public class EmployeeController {
         }
         return employee;
     }
-    @PostMapping("/addEmployees")
+    @PostMapping("/add")
     public Employee addEmployee(@RequestBody Employee employee){
         employee.setId(0);
         Employee dbEmployee = employeeService.save(employee);
         return dbEmployee;
     }
-    @PutMapping("/updateEmployees")
+    @PutMapping("/update")
     public Employee updateEmployee(@RequestBody Employee employee){
         Employee employee1=employeeService.findById(employee.getId());
         employee.setCreatedAt(employee1.getCreatedAt());
         Employee dbemployee = employeeService.save(employee);
         return dbemployee;
     }
-    @DeleteMapping("/deleteEmployees/{employeeId}")
+    @DeleteMapping("/delete/{employeeId}")
     public String delEmployee(@PathVariable int employeeId){
         Employee dbEmployee=employeeService.findById(employeeId);
         if(dbEmployee==null){

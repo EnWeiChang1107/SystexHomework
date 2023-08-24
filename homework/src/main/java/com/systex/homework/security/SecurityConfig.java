@@ -27,28 +27,33 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http)throws Exception{
         http.authorizeHttpRequests(configurer ->
                 configurer
-                        .requestMatchers(HttpMethod.GET,"/api/getAllEmployees").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET,"/api/getEmployeesByName").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET,"/api/getEmployees/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST,"/api/addEmployees").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT,"/api/updateEmployees").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE,"/api/deleteEmployees/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/Employee/getAll").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/Employee/getByName").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/Employee/get/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/Employee/add").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,"/Employee/update").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/Employee/delete/**").hasRole("ADMIN")
 
-                        .requestMatchers(HttpMethod.GET,"/api/getRole/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET,"/api/getAllRoles").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST,"/api/addRole").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT,"/api/updateRole").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE,"/api/deleteRole/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/Role/get/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/Role/getAll").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/Role/add").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,"/Role/update").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/Role/delete/**").hasRole("ADMIN")
 
-                        .requestMatchers(HttpMethod.GET,"/api/getAllCategories").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST,"/api/addCategory").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT,"/api/updateCategory").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE,"/api/deleteCategory/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/Category/getAll").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/Category/add").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,"/Category/update").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/Category/delete/**").hasRole("ADMIN")
 
-                        .requestMatchers(HttpMethod.GET,"/api/getProduct").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST,"/api/addProduct").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT,"/api/updateProduct").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE,"/api/deleteProduct/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/Product/getAll").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/Product/add").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,"/Product/update").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/Product/delete/**").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET,"/AvailableProduct/getAll").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/AvailableProduct/add/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,"/AvailableProduct/update").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/AvailableProduct/delete/**").hasRole("ADMIN")
         );
 
 

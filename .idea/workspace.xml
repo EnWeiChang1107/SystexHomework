@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52b12df4-1fd1-425c-862d-0f9ae9abd76f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/controller/AvailableProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/dao/AvailableProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/entity/ProductCategories.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/service/AvailableProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/service/AvailableProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/entity/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/homework/src/main/java/com/systex/homework/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/target/classes/com/systex/homework/entity/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/homework/target/classes/com/systex/homework/entity/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/target/classes/com/systex/homework/entity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/homework/target/classes/com/systex/homework/entity/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework/target/classes/com/systex/homework/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/homework/target/classes/com/systex/homework/security/SecurityConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +35,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;EnWeiChang1107&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="31b1aeee-2078-4e55-acfd-aa58d9776460" />
+        <option name="url" value="https://github.com/EnWeiChang1107/SystexHomework.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -34,7 +61,12 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Systex/SystexHomework&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Systex/SystexHomework/untitled/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14550781&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
 }</component>
@@ -68,5 +100,16 @@
       <updated>1692607551468</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/untitled/src/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

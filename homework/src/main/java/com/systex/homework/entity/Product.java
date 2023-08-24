@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -12,7 +16,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private int productId;
+    private int product_Id;
 
     @Column(name = "name")
     private String name;
@@ -24,16 +28,22 @@ public class Product {
     private double price;
 
     @Column(name = "stock_quantity")
-    private int stockQuantity;
+    private int stock_quantity;
 
     @Column(name = "image_url")
-    private String imageUrl;
+    private String image_url;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinTable(name = "product_categories",
+//            joinColumns = @JoinColumn(name = "product_id"),
+//            inverseJoinColumns = @JoinColumn(name = "category_id"))
+//    private Set<Categories> categories = new HashSet<>();
 
     @PrePersist
     protected void onCreate() {

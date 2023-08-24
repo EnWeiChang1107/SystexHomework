@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/Role")
 public class RoleController {
     private RoleService roleService;
     @Autowired
@@ -16,11 +16,11 @@ public class RoleController {
         this.roleService=roleService;
     }
 
-    @GetMapping("/getAllRoles")
+    @GetMapping("/getAll")
     public List<Role> getAll(){
         return roleService.getAll();
     }
-    @GetMapping("/getRole/{roleId}")
+    @GetMapping("/get/{roleId}")
     public Role getRole(@PathVariable int roleId){
         Role role=roleService.findById(roleId);
         if(role==null){
@@ -29,20 +29,20 @@ public class RoleController {
         return role;
 
     }
-    @PostMapping("/addRole")
+    @PostMapping("/add")
     public Role addRole(@RequestBody Role role){
         role.setId(0);
         Role role1 =roleService.save(role);
         return role1;
     }
-    @PutMapping("/updateRole")
+    @PutMapping("/update")
     public Role updateRole(@RequestBody Role role){
         Role role1=roleService.findById(role.getId());
         role.setCreatedAt(role1.getCreatedAt());
         Role dbRole=roleService.save(role);
         return dbRole;
     }
-    @DeleteMapping("/deleteRole/{roleId}")
+    @DeleteMapping("/delete/{roleId}")
     public String deleteRole(@PathVariable int roleId){
         Role role =roleService.findById(roleId);
         if(role==null){
