@@ -28,7 +28,6 @@ public class ProductController {
     }
     @PutMapping("/update")
     public Product updateProduct(@RequestBody Product product){
-        System.out.println(product.getProduct_Id());
         Product product1=productService.findById(product.getProduct_Id());
         product.setCreatedAt(product1.getCreatedAt());
         Product product2=productService.save(product);

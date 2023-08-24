@@ -39,11 +39,11 @@ public class Product {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinTable(name = "product_categories",
-//            joinColumns = @JoinColumn(name = "product_id"),
-//            inverseJoinColumns = @JoinColumn(name = "category_id"))
-//    private Set<Categories> categories = new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinTable(name = "product_categories",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Categories categories ;
 
     @PrePersist
     protected void onCreate() {
