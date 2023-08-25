@@ -3,6 +3,7 @@ package com.systex.homework.controller;
 import com.systex.homework.entity.Employee;
 import com.systex.homework.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,8 +19,9 @@ public class EmployeeController {
 
 
     @GetMapping("/getByName")//localhost:8080/api/getEmployeesByName/search?name=John
-    public List<Employee> findByNAme(@RequestParam(value = "name",required = false) String name){
-        return employeeService.findByName(name);
+    public ResponseEntity<List<Employee>> findByNAme(@RequestParam(value = "name",required = false) String name){
+        List<Employee> employees=employeeService.findByName(name);
+        return ResponseEntity.ok().body(employees);
     }
     @GetMapping("/getAll")
     public List<Employee> findAll(){
@@ -31,6 +33,7 @@ public class EmployeeController {
         if(employee==null){
             throw new RuntimeException("Employee id not found - " + employeeId);
         }
+
         return employee;
     }
     @PostMapping("/add")

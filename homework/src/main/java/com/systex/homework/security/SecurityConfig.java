@@ -54,6 +54,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST,"/AvailableProduct/add/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT,"/AvailableProduct/update").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE,"/AvailableProduct/delete/**").hasRole("ADMIN")
+
+                        .anyRequest().permitAll()
         );
 
 
