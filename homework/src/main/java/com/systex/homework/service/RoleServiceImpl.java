@@ -27,7 +27,7 @@ public class RoleServiceImpl implements RoleService{
         if(result.isPresent()){
             role=result.get();
         }else{
-            throw new RuntimeException("Did not find role id - " + Id);
+            throw new NullPointerException();
         }
         return role;
     }

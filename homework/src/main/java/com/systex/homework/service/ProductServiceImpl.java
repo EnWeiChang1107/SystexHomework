@@ -18,7 +18,7 @@ public class ProductServiceImpl implements ProductService{
     public Product findById(int id) {
         Product product=productRepository.findById(id).orElse(null);
         if(product==null){
-            throw new RuntimeException("Did not find product id - "+id);
+            throw new NullPointerException();
         }
         return product;
     }
@@ -36,9 +36,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void delete(int id) {
         Product product=productRepository.findById(id).orElse(null);
-        if(product==null){
-            throw new RuntimeException("Did not find product id: "+id);
-        }
+
         productRepository.deleteById(id);
     }
 }

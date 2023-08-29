@@ -18,7 +18,7 @@ public class CategoriesServiceImpl implements CategoriesService{
     public Categories findById(int id) {
         Categories categories = categoriesRepository.findById(id).orElse(null);
         if(categories==null){
-            throw new RuntimeException("Did not find category id - " + id);
+            throw new NullPointerException("Did not find category id - " + id);
         }
         return categories;
     }
@@ -31,11 +31,9 @@ public class CategoriesServiceImpl implements CategoriesService{
     @Override
     public void delete(int id) {
         Categories categories=categoriesRepository.findById(id).orElse(null);
-        if(categories==null){
-            throw new RuntimeException("Did not find category id - " + id);
-        }else {
-            categoriesRepository.delete(categories);
-        }
+
+        categoriesRepository.delete(categories);
+
     }
 
     @Override

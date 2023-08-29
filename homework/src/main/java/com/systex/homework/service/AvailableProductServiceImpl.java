@@ -27,7 +27,7 @@ public class AvailableProductServiceImpl implements AvailableProductService{
     public AvailableProduct findById(int id) {
         AvailableProduct availableProduct=availableProductRepository.findById(id).orElse(null);
         if(availableProduct==null){
-            throw new RuntimeException("Did not find availableProduct id - "+id);
+            throw new NullPointerException("Did not find availableProduct id - "+id);
         }
         return availableProduct;
     }
@@ -53,7 +53,7 @@ public class AvailableProductServiceImpl implements AvailableProductService{
     public void deleteAvailableProduct(int id) {
         AvailableProduct availableProduct=availableProductRepository.findById(id).orElse(null);
         if(availableProduct==null){
-            throw new RuntimeException("Did not find availableProduct id - "+id);
+            throw new NullPointerException("Did not find availableProduct id - "+id);
         }
         availableProductRepository.delete(availableProduct);
     }
