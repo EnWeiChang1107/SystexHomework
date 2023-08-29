@@ -51,7 +51,7 @@ public class CategoriesController {
             return ResponseEntity.ok().body(categories2);
         }catch(NullPointerException e){
 
-            ErrorRes errorRes=new ErrorRes(HttpStatus.NOT_FOUND,"Employee NotFound");
+            ErrorRes errorRes=new ErrorRes(HttpStatus.NOT_FOUND,"Category NotFound");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorRes);
 
         }catch (Exception e){
@@ -68,7 +68,7 @@ public class CategoriesController {
             return ResponseEntity.ok().body("Deleted category id: " + CategoryId);
         }catch (NullPointerException e){
 
-            ErrorRes errorRes=new ErrorRes(HttpStatus.NOT_FOUND,"Employee NotFound");
+            ErrorRes errorRes=new ErrorRes(HttpStatus.NOT_FOUND,"Category NotFound");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorRes);
 
         }catch (Exception e){
