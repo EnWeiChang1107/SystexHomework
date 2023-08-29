@@ -24,38 +24,39 @@ public class EmployeeController {
         return ResponseEntity.ok().body(employees);
     }
     @GetMapping("/getAll")
-    public List<Employee> findAll(){
-        return employeeService.findAll();
+    public ResponseEntity<List<Employee>> findAll(){
+        List<Employee> list=employeeService.findAll();
+        return ResponseEntity.ok().body(list);
     }
     @GetMapping("/get/{employeeId}")
-    public Employee getEmployee(@PathVariable int employeeId){
+    public ResponseEntity<Employee> getEmployee(@PathVariable int employeeId){
         Employee employee = employeeService.findById(employeeId);
         if(employee==null){
             throw new RuntimeException("Employee id not found - " + employeeId);
         }
 
-        return employee;
+        return ResponseEntity.ok().body(employee);
     }
     @PostMapping("/add")
-    public Employee addEmployee(@RequestBody Employee employee){
+    public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
         employee.setId(0);
         Employee dbEmployee = employeeService.save(employee);
-        return dbEmployee;
+        return ResponseEntity.ok().body(dbEmployee);
     }
     @PutMapping("/update")
-    public Employee updateEmployee(@RequestBody Employee employee){
+    public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee){
         Employee employee1=employeeService.findById(employee.getId());
         employee.setCreatedAt(employee1.getCreatedAt());
         Employee dbemployee = employeeService.save(employee);
-        return dbemployee;
+        return ResponseEntity.ok().body(dbemployee);
     }
     @DeleteMapping("/delete/{employeeId}")
-    public String delEmployee(@PathVariable int employeeId){
+    public ResponseEntity delEmployee(@PathVariable int employeeId){
         Employee dbEmployee=employeeService.findById(employeeId);
-        if(dbEmployee==null){
+        if(dbEmployee.getIs_delete()==1){
             throw new RuntimeException("Employee id not found - " + employeeId);
         }
         employeeService.delete(employeeId);
-        return "Deleted employee id: "+employeeId;
+        return ResponseEntity.ok().body("Deleted employee id: "+employeeId);
     }
 }

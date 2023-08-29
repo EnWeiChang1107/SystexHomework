@@ -4,6 +4,7 @@ import com.systex.homework.entity.AvailableProduct;
 import com.systex.homework.entity.Product;
 import com.systex.homework.service.AvailableProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,24 +19,27 @@ public class AvailableProductController {
     }
 
     @GetMapping("/getAll")
-    public List<AvailableProduct> getAll(){
-        return availableProductService.findAll();
+    public ResponseEntity<List<AvailableProduct>> getAll(){
+        List<AvailableProduct> list=availableProductService.findAll();
+        return ResponseEntity.ok().body(list);
     }
 
     @PostMapping("/add/{id}")
-    public AvailableProduct add(@PathVariable int id){
-        return availableProductService.addProduct(id);
+    public ResponseEntity<AvailableProduct> add(@PathVariable int id){
+        AvailableProduct availableProduct=availableProductService.addProduct(id);
+        return ResponseEntity.ok().body(availableProduct);
     }
 
     @PutMapping("/update")
-    public AvailableProduct update(@RequestBody AvailableProduct availableProduct){
+    public ResponseEntity<AvailableProduct> update(@RequestBody AvailableProduct availableProduct){
         AvailableProduct availableProduct1=availableProductService.findById(availableProduct.getAvailableProductId());
         availableProduct.setCreatedAt(availableProduct1.getCreatedAt());
-        return availableProductService.updateProduct(availableProduct);
+        AvailableProduct availableProduct2=availableProductService.updateProduct(availableProduct);
+        return ResponseEntity.ok().body(availableProduct2);
     }
     @DeleteMapping("/delete/{AvailableProductId}")
-    public String delete(@PathVariable int AvailableProductId){
+    public ResponseEntity<String> delete(@PathVariable int AvailableProductId){
         availableProductService.deleteAvailableProduct(AvailableProductId);
-        return "Deleted AvailableProduct id - "+AvailableProductId;
+        return ResponseEntity.ok().body("Deleted AvailableProduct id - "+AvailableProductId) ;
     }
 }

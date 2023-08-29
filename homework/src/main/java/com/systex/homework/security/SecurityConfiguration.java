@@ -2,6 +2,7 @@ package com.systex.homework.security;
 
 import com.systex.homework.auth.JwtAuthorizationFilter;
 import com.systex.homework.service.UserService;
+import jakarta.servlet.http.Cookie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,6 +47,8 @@ public class SecurityConfiguration  {
                 .and().sessionManagement(sessionManagement ->
                         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                         ).addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
+
+        http.logout(logout -> logout.clearAuthentication(true));
 
         return http.build();
     }

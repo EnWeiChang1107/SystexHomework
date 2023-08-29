@@ -15,12 +15,12 @@ public class HomeworkApplication {
 		SpringApplication.run(HomeworkApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner commandLineRunner(EmployeeService employeeService, RoleService roleService, ProductService productService){
-		return runner ->{
-			System.out.println(productService.findById(1));
-			//System.out.println(roleService.findById(1));
-		};
-	}
+//	@Bean
+//	public CommandLineRunner commandLineRunner(EmployeeService employeeService, RoleService roleService, ProductService productService){
+//		return runner ->{
+//			System.out.println(productService.findById(1));
+//			//System.out.println(roleService.findById(1));
+//		};
+//	}
 
 }
